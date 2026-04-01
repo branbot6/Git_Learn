@@ -21,3 +21,13 @@ point to new branch
 ## `git rebase`
 
 
+## push简单理解：
+命令 作用 频率
+git init 初始化仓库 一次
+git remote add origin ...绑定远程仓库 一次
+git branch -M main设置主分支名 一次
+git push -u origin main首次推送并绑定分支 一次
+
+git add .暂存改动 每次
+git commit -m "..."提交 每次
+git push推送 每次
