@@ -9,7 +9,7 @@ point to new branch
 -branch early
 
 ## `git checkout <name>`
-- put us on the new branch before commit
+- put pointer on the new branch before commit
 - `git checkout -b [yourbranchname]`
     - create a new branch AND check it out at the same time
 ## `git swich`
@@ -17,8 +17,10 @@ point to new branch
 
 ## `git merge <yourbranchname>`
 - creates a special commit that has two unique parents
+- merge from pointer(yourbranchname) to main
 
-## `git rebase`
+## `git rebase<yourbranchname>`
+- takes a set of commits, "copies" them, and plops them down somewhere else.
 
 
 ## push简单理解：
