@@ -1,35 +1,70 @@
 # Git Learning Notes 3.31
 
+## `git commit`
+Save staged changes as a new commit.
 
-## `git commit` 
- save delta or changes 
+Additional notes:
+- `git commit` records only staged changes.
+- Before committing, run `git add <file>` or `git add .`.
+- Use clear commit messages, for example: `git commit -m "feat: ..."` .
 
-## `git branch <branch name>`
-point to new branch
--branch early
+## `git branch <branch-name>`
+Create a new branch pointer.
+- Branch early.
+
+Additional notes:
+- `git branch <branch-name>` only creates a branch; it does not switch to it.
+- A branch is a movable pointer to commits, usually created from your current `HEAD`.
+- List local branches with `git branch`.
 
 ## `git checkout <name>`
-- put pointer on the new branch before commit
-- `git checkout -b [yourbranchname]`
-    - create a new branch AND check it out at the same time
-## `git swich`
--merge the end of branch to main
+- Switch to an existing branch named `<name>`.
+- `git checkout -b <your-branch-name>`
+  - Create a new branch and check it out at the same time.
 
-## `git merge <yourbranchname>`
-- creates a special commit that has two unique parents
-- merge from pointer(yourbranchname) to main
+Additional notes:
+- `git switch` is now preferred for branch switching because it is clearer.
+- `git checkout` is more general and can also restore files.
 
-## `git rebase<yourbranchname>`
-- takes a set of commits, "copies" them, and plops them down somewhere else.
+## `git switch`
+- Switch to another branch.
+- `git switch -c <new-branch-name>` creates and switches to a new branch.
 
+Additional notes:
+- `git switch` does not merge anything; it only changes your current branch.
+- To bring feature branch changes into `main`, use `git merge` or `git rebase`.
 
-## push简单理解：
-命令 作用 频率
-git init 初始化仓库 一次
-git remote add origin ...绑定远程仓库 一次
-git branch -M main设置主分支名 一次
-git push -u origin main首次推送并绑定分支 一次
+## `git merge <your-branch-name>`
+- Create a merge commit that has two parent commits.
+- Merge `your-branch-name` into the current branch (often `main`).
 
-git add .暂存改动 每次
-git commit -m "..."提交 每次
-git push推送 每次
+Additional notes:
+- Switch to the target branch first, then merge. Example:
+  1. `git switch main`
+  2. `git merge feature/login`
+- If there are no conflicts, merge completes automatically. If conflicts appear, resolve them and commit.
+
+## `git rebase <your-branch-name>`
+- Replay commits on top of another base commit.
+
+Additional notes:
+- A common workflow is running `git rebase main` on your feature branch to replay commits on top of the latest `main`.
+- Rebase rewrites commit history, so be careful if commits were already pushed to a shared branch.
+- The main benefit is a cleaner, more linear history.
+
+## Simple Push Workflow
+
+| Command | Purpose | Frequency |
+| --- | --- | --- |
+| `git init` | Initialize a repository | One-time |
+| `git remote add origin <url>` | Connect a remote repository | One-time |
+| `git branch -M main` | Set the default branch name | One-time |
+| `git push -u origin main` | First push and set upstream branch | One-time |
+| `git add .` | Stage changes | Every time |
+| `git commit -m "..."` | Create a commit | Every time |
+| `git push` | Push commits to remote | Every time |
+
+Additional notes:
+- The most common daily flow is: `add -> commit -> push`.
+- `-u` sets the upstream branch, so later you can run `git push` / `git pull` directly.
+- Prefer small, focused commits with messages that explain what changed and why.
