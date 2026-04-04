@@ -68,3 +68,6 @@ Additional notes:
 - The most common daily flow is: `add -> commit -> push`.
 - `-u` sets the upstream branch, so later you can run `git push` / `git pull` directly.
 - Prefer small, focused commits with messages that explain what changed and why.
+- git pull --no-rebase origin main --allow-unrelated-histories
+  - ### 如有冲突先解决并提交
+  - git push -u origin main
