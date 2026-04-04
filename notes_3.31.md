@@ -71,3 +71,20 @@ Additional notes:
 - git pull --no-rebase origin main --allow-unrelated-histories
   - ### 如有冲突先解决并提交
   - git push -u origin main
+
+
+
+| VS Code 图形操作 | 对应 Git 命令 | 作用 |
+|---|---|---|
+| 打开 `Source Control` 看变更 | `git status` | 查看当前改动状态 |
+| 点文件旁 `+`（Stage） | `git add <file>` | 暂存某个文件 |
+| 点 `Stage All Changes` | `git add .` | 暂存全部改动 |
+| 输入消息后点 `Commit` | `git commit -m "message"` | 提交暂存内容 |
+| 点 `Push` | `git push` | 推送到远程仓库 |
+| 点 `Pull` | `git pull` | 拉取远程更新 |
+| 点 `Sync Changes` | `git pull` + `git push` | 先拉后推 |
+| 左下角点分支名切换 | `git switch <branch>` | 切换分支 |
+| 创建新分支 | `git switch -c <new-branch>` | 新建并切换 |
+| 合并分支（UI 菜单） | `git merge <branch>` | 把某分支合并到当前分支 |
+
+你接下来就按这个思路：**先用 GUI，卡住就看右边命令对应**。
